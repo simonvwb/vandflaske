@@ -1,0 +1,180 @@
+@charset "utf-8";
+/* CSS Document */
+.wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
+	font: 1.2em helvetica, arial, sans-serif;
+}
+
+.wrapper > * {
+
+	border-radius: 5px;
+	padding: 10px;
+	border: 2px solid rgba(128, 96, 65, 0.2);
+}
+
+.main-head {
+	padding: 45px;
+	border-bottom-style: ridge;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+}
+
+
+
+body {
+  background-image: url("img/flaske.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+background-position: 82% 77.5%;
+
+}
+
+
+/* We name areas using the grid-area property*/
+
+.main-head {
+  grid-area: header;
+	border: none;
+}
+.content {
+  grid-area: content;
+	border: none;
+}
+.main-nav {
+  grid-area: nav;
+	border: none;
+}
+.side {
+  grid-area: sidebar;
+}
+.ad {
+  grid-area: ad;
+	border: none;
+}
+.main-footer {
+  grid-area: footer;
+	border: none;
+}
+
+/*mobile first, siden er sat visuelt op som vi ser i understående kode.*/
+
+.wrapper {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas:
+		"header"
+		"nav"
+		"content"
+		"footer"
+}
+
+p {
+	white-space: pre-line;
+}
+
+.tekst {
+	font-style: italic;
+
+}
+
+h2 {
+	font-size: 1.2em;
+}
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: transparent;
+
+}
+
+li a {
+  display: block;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+/* Footeren på bunden af siden */
+img.foot {
+	display: block;
+	margin: 0 auto;
+	width: 65px;
+	height: 65px;
+}
+
+p.p1 {
+	font-size: 15px;
+	margin-top: -10px;
+}
+
+p.p3 {
+	font-size: 15px;
+}
+
+p.p2 {
+	font-size: 15px;
+	text-align: right;
+	margin-top: -57px;
+}
+
+p.p4
+{
+	font-size: 15px;
+	text-align: right;
+	margin-top: -10px;
+}
+
+p.p5{
+	font-size: 15px;
+}
+
+img.logoshop{
+	float: right;
+	width: 65px;
+	height: 65px;
+	margin-top: -150px;
+
+/*Tablet, siden er sat visuelt op som vi ser i understående kode.
+fr fortæller os hvor mange grid-koloner der er og hvor meget de forskellige punkter fylder */
+@media (min-width: 500px) {
+	.wrapper {
+		grid-template-columns: 1fr 3fr;
+		grid-template-areas:
+		"header header"
+		"nav nav"
+		"sidebar content"
+		"ad footer";
+	}
+
+	nav ul {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+/* Desktop. Siden er sat visuelt op som vi ser i understående kode.
+fr fortæller os hvor mange grid-koloner der er og hvor meget de forskellige punkter fylder */
+@media (min-width: 700px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas:
+      "header header  header"
+      "nav    content sidebar"
+      "nav    content ad"
+      "footer footer  footer"
+   }
+   nav ul {
+     flex-direction: column;
+   }
+}
